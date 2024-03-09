@@ -1,0 +1,128 @@
+:root {
+    --txt-light: #0e0e0e;
+    --txt-lighter-light: rgba(0, 0, 0, 0.50);
+    --theme-color-light: white;
+    --bg1-light: white;
+    --bg2-light: whitesmoke;
+    /*--shadow-light: whitesmoke;*/
+    --nav-bg-light: black;
+    --nav-txt-light: #ffffff;
+    --form-element-bg-light: #fafafa;
+
+
+
+
+
+    --txt-dark: white;
+    --txt-lighter-dark: rgba(255, 255, 255, 0.50);
+    --theme-color-dark: black;
+    --bg1-dark: #424242;
+    --bg2-dark: #2f2f2f;
+
+
+    /*--shadow-dark: whitesmoke;*/
+    --nav-bg-dark: black;
+    --nav-txt-dark: whitesmoke;
+    --form-element-bg-dark: #5d5d5d;
+
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --txt: var(--txt-dark);
+        --txt-lighter: var(--txt-lighter-dark);
+        --theme-color: var(--theme-color-dark);
+        --bg1: var(--bg1-dark);
+        --bg2: var(--bg2-dark);
+        /*--shadow-light:var(--shadow-dark);*/
+        --nav-bg-light: var(--nav-bg-dark);
+        --nav-txt-light: var(--nav-txt-dark);
+        --form-element-bg: var(--form-element-bg-dark)
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --txt: var(--txt-light);
+        --txt-lighter: var(--txt-lighter-light);
+        --theme-color: var(--theme-color-light);
+        --bg1: var(--bg1-light);
+        --bg2: var(--bg2-light);
+        /*--shadow:var(--shadow-light);*/
+        --nav-bg: var(--nav-bg-light);
+        --nav-txt: var(--nav-txt-light);
+        --form-element-bg: var(--form-element-bg-light)
+
+    }
+}
+
+[color-scheme='dark'] {
+    --txt: var(--txt-dark);
+    --txt-lighter: var(--txt-lighter-dark);
+    --theme-color: var(--theme-color-dark);
+    --bg1: var(--bg1-dark);
+    --bg2: var(--bg2-dark);
+    /*--shadow-light:var(--shadow-dark);*/
+    --nav-bg-light: var(--nav-bg-dark);
+    --nav-txt-light: var(--nav-txt-dark);
+    --form-element-bg: var(--form-element-bg-dark)
+
+}
+
+[color-scheme='light'] {
+    --txt: var(--txt-light);
+    --txt-lighter: var(--txt-lighter-light);
+    --theme-color: var(--theme-color-light);
+    --bg1: var(--bg1-light);
+    --bg2: var(--bg2-light);
+    /*--shadow:var(--shadow-light);*/
+    --nav-bg: var(--nav-bg-light);
+    --nav-txt: var(--nav-txt-light);
+    --form-element-bg: var(--form-element-bg-light)
+
+}
+input, select, textarea{
+    background-color: var(--form-element-bg) !important;
+    color: var(--txt) !important;
+
+}
+.card, .card-body, .card-title, .card-body > div > div > h1, .card-body > p,tr, td, th{
+    background-color: var(--bg1) !important;
+    color: var(--txt);
+}
+i, .bi{
+    background-color: transparent !important;
+}
+.text-black-50 {
+    color: var(--txt-lighter) !important;
+}
+
+.bg-light {
+    background-color: var(--bg2) !important;
+}
+
+h1, h2, h3, h4, h5, h6, p,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    background-color: transparent !important;
+    color: var(--txt);
+}
+
+.navbar, .navbar ul > li > a > i, .navbar div > span > i {
+    background-color: var(--nav-bg) !important;
+    color: var(--nav-txt) !important;
+}
+
+#sidebar, #sidebar .text-dark, .nav-pills > li > a :not(.router-link-active)> .bi
+ {
+    background-color: var(--nav-bg) !important;
+    color: var(--nav-txt) !important;
+}
+
+.router-link-active ,.router-link-active > .bi  {
+    background-color: var(--bg2) !important;
+    color: var(--txt) !important;
+
+}
+.paginate-btn:not(.text-muted){
+    color: var(--txt);
+}
