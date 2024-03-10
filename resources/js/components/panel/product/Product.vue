@@ -7,7 +7,10 @@
                         <div class="col-12 mb-3 ">
                             <div class="d-inline-block mt-5">
                                 <div class="ind">
-                                    <img class="img-fluid mb-2" :src="data.image" width="350" alt="">
+                                   <div class="d-flex">
+                                       <img class="img-fluid mb-2" :src="data.image1" width="350" alt="">
+                                       <img class="img-fluid mb-2" :src="data.image2" width="350" alt="">
+                                   </div>
                                     <div class="label">
                                         <span class="badge bg-danger">
                                             <i class="bi bi-tags-fill ms-2"></i>
@@ -27,64 +30,23 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
 
-                </div>
-
-                <div class="col-xxl-12 mb-5 ">
-                    <div class="card h-100">
-                        <div class="card-body p-md-5 ">
-                            <div class="d-md-flex justify-content-md-between ">
-                                <p>{{ data.title_en }}</p>
-                                <!--                                <p>{{ data.subTitle }}</p>-->
-                                <p>{{ data.flavor }}</p>
-                                <p>{{ data.flavor_en }}</p>
-                            </div>
-                            <div class="" v-if="data.link">
-                                <a target="_blank" :href="data.link">لینک خرید</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xxl-12 mb-5 ">
-                    <div class="card h-100">
-                        <div class="card-body p-md-5 ">
-                            <h5 class="mb-5">ترکیبات</h5>
-
-                            <p>{{ data.ingredients}}</p>
-
-                        </div>
-                    </div>
-                </div>
+<!--                <div class="col-xxl-12 mb-5 ">-->
+<!--                    <div class="card h-100">-->
+<!--                        <div class="card-body p-md-5 ">-->
+<!--                            <div class="" v-if="data.link">-->
+<!--                                <a target="_blank" :href="data.link">لینک خرید</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
 
 
-                <div class="col-lg-6 mb-5 ">
-                    <div class="card h-100">
-                        <div class="card-body p-md-5 ">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h5 class="mb-5">ارزش غذایی</h5>
-                                    <table v-if="data.features">
-                                        <tbody>
-                                        <tr v-for="item in features" :key="item.id">
-                                            <th>{{ item.label }}:</th>
-                                            <td class="text-center">{{ item.unit }}</td>
-                                            <td class="text-center">{{ item.value }}</td>
 
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mb-5">
+                <div class="col-lg-12 mb-5">
                     <div class="card h-100">
                         <div class="card-body p-md-5">
-                            <h5 class="mb-5">ویژگی</h5>
+                            <h5 class="mb-5">متن</h5>
 
                             <div id="text" style="font-size: 18px;white-space: pre-line; text-align: right !important"
                                  class="mb-5">
@@ -94,15 +56,6 @@
                     </div>
                 </div>
 
-                <div class="col-xxl-12 mb-5 ">
-                    <div class="card h-100">
-                        <div class="card-body p-md-5 ">
-                            <h5 class="mb-5">محصولات مرتبط</h5>
-
-                            <button v-for="item in data.related_products" :key="item.id" class="m-2 btn btn-sm btn-primary">{{ item.title}}</button>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div v-else><p class="fw-bold">این محصول موجود نیست</p></div>
 

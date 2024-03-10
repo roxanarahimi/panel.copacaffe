@@ -220,11 +220,18 @@ class ProductController extends Controller
             return response()->json($validator->messages(), 422);
         }
         try {
-            $product = Product::create($request->except('image','related_products'));
-            if ($request['image']) {
+            $product = Product::create($request->except('image1','image2','related_products'));
+            if ($request['image1']) {
                 $name = 'product_' . $product['id'] . '_' . uniqid() . '.png';
-                $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/products/');
-                $product->update(['image' => '/' . $image_path]);
+                $image_path = (new ImageController)->uploadImage($request['image1'], $name, 'images/products/');
+                $product->update(['image1' => '/' . $image_path]);
+
+                (new ImageController)->resizeImage('images/products/',$name);
+            }
+            if ($request['image2']) {
+                $name = 'product_' . $product['id'] . '_' . uniqid() . '.png';
+                $image_path = (new ImageController)->uploadImage($request['image2'], $name, 'images/products/');
+                $product->update(['image2' => '/' . $image_path]);
 
                 (new ImageController)->resizeImage('images/products/',$name);
             }
@@ -258,22 +265,30 @@ class ProductController extends Controller
             return response()->json($validator->messages(), 422);
         }
         try {
-            $product->update($request->except('image','related_products'));
-            if ($request['image']) {
+            $product->update($request->except('image1','image2','related_products'));
+            if ($request['image1']) {
                 $name = 'product_' . $product['id'] . '_' . uniqid() . '.png';
-                $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/products/');
-
-                if ($product['image']){
-                    $file_to_delete = ltrim($product['image'], $product['image'][0]); //remove '/' from file name start
+                $image_path = (new ImageController)->uploadImage($request['image1'], $name, 'images/products/');
+                if ($product['image1']){
+                    $file_to_delete = ltrim($product['image1'], $product['image1'][0]); //remove '/' from file name start
                     $file_to_delete_thumb = ltrim(str_replace('.png','_thumb.png',$file_to_delete));
                     if (file_exists($file_to_delete)){  unlink($file_to_delete);}
                     if (file_exists($file_to_delete_thumb)){  unlink($file_to_delete_thumb);}
                 }
-
-                $product->update(['image' => '/' . $image_path]);
+                $product->update(['image1' => '/' . $image_path]);
                 (new ImageController)->resizeImage('images/products/',$name);
-
-
+            }
+            if ($request['image2']) {
+                $name = 'product_' . $product['id'] . '_' . uniqid() . '.png';
+                $image_path = (new ImageController)->uploadImage($request['image2'], $name, 'images/products/');
+                if ($product['image2']){
+                    $file_to_delete = ltrim($product['image2'], $product['image2'][0]); //remove '/' from file name start
+                    $file_to_delete_thumb = ltrim(str_replace('.png','_thumb.png',$file_to_delete));
+                    if (file_exists($file_to_delete)){  unlink($file_to_delete);}
+                    if (file_exists($file_to_delete_thumb)){  unlink($file_to_delete_thumb);}
+                }
+                $product->update(['image2' => '/' . $image_path]);
+                (new ImageController)->resizeImage('images/products/',$name);
             }
 
             $relatedZ = RelatedProduct::where('product_id', $request['id'])->get();

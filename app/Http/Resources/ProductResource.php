@@ -23,21 +23,20 @@ class ProductResource extends JsonResource
                 $relatedProducts[] = $item->relatedProductt;
             }
         }
-        $thumb = $this->image ? str_replace('.png','_thumb.png', $this->image) : '';
+        $thumb1 = $this->image1 ? str_replace('.png','_thumb.png', $this->image1) : '';
+        $thumb2 = $this->image2 ? str_replace('.png','_thumb.png', $this->image2) : '';
         return [
             "id" => (string)$this->id,
             "value" => (string)$this->id,
             "index" => $this->index,
             "product_category_id" => $this->product_category_id,
-            "image" => $this->image,
-            "thumb" => $thumb,
+            "image1" => $this->image1,
+            "thumb1" => $thumb1,
+            "image2" => $this->image2,
+            "thumb2" => $thumb2,
             "title" => $this->title,
-            "title_en" => $this->title_en,
             "subTitle" => $this->subTitle,
-            "flavor" => $this->flavor,
-            "flavor_en" => $this->flavor_en,
-            "ingredients" => $this->ingredients,
-            "link" => $this->link,
+//            "link" => $this->link,
             "stock" => $this->stock,
             "active" => (boolean)$this->active,
             "text" => $this->text,
@@ -46,9 +45,7 @@ class ProductResource extends JsonResource
                 'title' => $this->category->title,
                 'active' => $this->category->active,
             ],
-            "related_products" => $relatedProducts,
-            "color" => $this->color,
-            "features" => $this->features,
+//            "features" => $this->features,
             "price" => $this->price,
             "off" => $this->off,
             "view" => $this->view,

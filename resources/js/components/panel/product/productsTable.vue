@@ -4,8 +4,8 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th class="table-first-cell" scope="col"></th>
-                    <th class="d-none d-md-table-cell" style="width: 100px" scope="col">تصویر</th>
+                    <th class="table-first-cell" scope="col"  style="width: 20px"></th>
+                    <th class="d-none d-md-table-cell" style="width: 100px" scope="col">تصاویر</th>
                     <th scope="col">عنوان</th>
                     <th scope="col" class="d-none d-xl-table-cell text_cell">دسته</th>
 <!--                    <th scope="col">قیمت</th>-->
@@ -19,12 +19,13 @@
                 </thead>
                 <tbody>
 
-                <tr :id="'row_'+data.id" v-for="(data, index) in allData" :key="data.id"
-                    :data-index="index">
-                    <td class="table-first-cell" scope="row">{{ index + 1 }}</td>
-                    <td class="d-none d-md-table-cell" style="width: 100px">
-                        <img v-if="data.thumb" :src="data.thumb" width="80" alt="">
-                        <!--       tumb-->
+                <tr :id="'row_'+data.id" v-for="(data, index) in allData" :key="data.id" :data-index="index">
+                    <td class="table-first-cell" scope="row"  style="width: 20px">{{ index + 1 }}</td>
+                    <td class="d-none d-md-table-cell" style="width: 200px">
+                        <div class="d-flex justify-content-around">
+                            <img v-if="data.thumb1" :src="data.thumb1" width="80" alt="">
+                            <img v-if="data.thumb2" :src="data.thumb2" width="80" alt="">
+                        </div>
                     </td>
                     <td>
                         <router-link :to="'/panel/product/'+data.id">{{ data.title }}</router-link>
