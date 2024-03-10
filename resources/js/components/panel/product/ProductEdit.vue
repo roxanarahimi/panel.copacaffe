@@ -118,7 +118,7 @@ export default {
             image_names: [],
             imgRequired: false,
             hasCaption: false,
-            aspect: false,
+            aspect: 1/1,
             isPng: true,
             isDefined: false,
             enableClick: true,

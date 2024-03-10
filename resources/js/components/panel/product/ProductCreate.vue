@@ -108,7 +108,7 @@ export default {
             image_names: [],
             imgRequired: true,
             hasCaption: false,
-            aspect: false,
+            aspect: 1/1,
             isPng: true,
             features: [{"label": "", "value": "", "unit": ""}],
             sizes: [{"size": "", "dimensions": "", "color_name": "", "color_code": "", "stock": ""}],

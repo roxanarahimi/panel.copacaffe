@@ -108,7 +108,7 @@ __webpack_require__.r(__webpack_exports__);
       image_names: [],
       imgRequired: false,
       hasCaption: false,
-      aspect: false,
+      aspect: 1 / 1,
       isPng: true,
       isDefined: false,
       enableClick: true,
