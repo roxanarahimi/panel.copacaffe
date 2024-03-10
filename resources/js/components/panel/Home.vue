@@ -12,7 +12,7 @@
                           <div class="card h-100" >
                               <div class="card-body text-center justify-content-center" style="display: grid">
                                   <div style="align-self: center; text-align: center" >
-                                      <img :src="item.thumb" class="img-fluid w-50  " alt="">
+                                      <img :src="item.thumb1" class="img-fluid w-50  " alt="">
                                   </div>
                               </div>
                               <div class="card-footer border-none bg-white">
