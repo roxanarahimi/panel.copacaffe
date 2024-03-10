@@ -14,15 +14,6 @@ class ProductResource extends JsonResource
      */
     public function toArray($request)
     {
-        $relatedProducts =[] ;
-        if($this->relatedProducts){
-            foreach ($this->relatedProducts as $item){
-                $item->relatedProductt->value = $item->relatedProductt->id;
-                $thumb2 = $item->relatedProductt->image ? str_replace('.png','_thumb.png', $item->relatedProductt->image) : '';
-                $item->relatedProductt->thumb = $thumb2;
-                $relatedProducts[] = $item->relatedProductt;
-            }
-        }
         $thumb1 = $this->image1 ? str_replace('.png','_thumb.png', $this->image1) : '';
         $thumb2 = $this->image2 ? str_replace('.png','_thumb.png', $this->image2) : '';
         return [
