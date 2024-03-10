@@ -71,10 +71,8 @@ class SlideController extends Controller
             $data = Slide::create($request->except('image'));
             $data->update(['index' => $last['index'] + 1]);
 
-          //  $image = $request['image'];
             $name = 'slide_' . $data['id'] . '_' . uniqid() . '.jpg';
-            $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/');
-//            (new ImageController)->resizeImage('images/', $name);
+            $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/slides/');
             $data->update(['image' => '/' . $image_path]);
 
             return response(new SlideResource($data), 201);
@@ -102,10 +100,14 @@ class SlideController extends Controller
         try {
             $slide->update($request->except('image'));
             if ($request['image']) {
-               // $image = $request['image'];
                 $name = 'slide_' . $slide['id'] . '_' . uniqid() . '.jpg';
-                $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/');
-//                (new ImageController)->resizeImage('images/', $name);
+                $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/slides/');
+                if ($slide['image']){
+                    $file_to_delete = ltrim($slide['image'], $slide['image'][0]); //remove '/' from file name start
+                    $file_to_delete_thumb = ltrim(str_replace('.png','_thumb.png',$file_to_delete));
+                    if (file_exists($file_to_delete)){  unlink($file_to_delete);}
+                    if (file_exists($file_to_delete_thumb)){  unlink($file_to_delete_thumb);}
+                }
                 $slide->update(['image' => '/' . $image_path]);
             }
             return response(new SlideResource($slide), 200);
