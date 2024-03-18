@@ -17,29 +17,29 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-3 mb-3">
-                                        <label for="title" class="form-label">عنوان</label>
-                                        <input type="text" :class="{hasError: errors.title}" class="form-control"
-                                               id="title" aria-describedby="titleHelp" required>
-                                        <div id="titleHelp" class="form-text error"></div>
-                                        <p class="form-text error m-0" v-for="e in errors.title">{{ e }}</p>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="subTitle" class="form-label">زیرنویس</label>
-                                        <input type="text" :class="{hasError: errors.subTitle}"
-                                               class="form-control text-start" id="subTitle" required>
-                                        <div id="subTitleHelp" class="form-text error"></div>
-                                        <p class="form-text error m-0" v-for="e in errors.subTitle">{{ e }}</p>
+<!--                                    <div class="col-md-3 mb-3">-->
+<!--                                        <label for="title" class="form-label">عنوان</label>-->
+<!--                                        <input type="text" :class="{hasError: errors.title}" class="form-control"-->
+<!--                                               id="title" aria-describedby="titleHelp" required>-->
+<!--                                        <div id="titleHelp" class="form-text error"></div>-->
+<!--                                        <p class="form-text error m-0" v-for="e in errors.title">{{ e }}</p>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-md-6 mb-3">-->
+<!--                                        <label for="subTitle" class="form-label">زیرنویس</label>-->
+<!--                                        <input type="text" :class="{hasError: errors.subTitle}"-->
+<!--                                               class="form-control text-start" id="subTitle" required>-->
+<!--                                        <div id="subTitleHelp" class="form-text error"></div>-->
+<!--                                        <p class="form-text error m-0" v-for="e in errors.subTitle">{{ e }}</p>-->
 
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label for="link" class="form-label">لینک</label>
-                                        <input type="text" :class="{hasError: errors.link}" class="form-control"
-                                               id="link" aria-describedby="linkHelp" required>
-                                        <div id="linkHelp" class="form-text error"></div>
-                                        <p class="form-text error m-0" v-for="e in errors.link">{{ e }}</p>
+<!--                                    </div>-->
+<!--                                    <div class="col-md-3 mb-3">-->
+<!--                                        <label for="link" class="form-label">لینک</label>-->
+<!--                                        <input type="text" :class="{hasError: errors.link}" class="form-control"-->
+<!--                                               id="link" aria-describedby="linkHelp" required>-->
+<!--                                        <div id="linkHelp" class="form-text error"></div>-->
+<!--                                        <p class="form-text error m-0" v-for="e in errors.link">{{ e }}</p>-->
 
-                                    </div>
+<!--                                    </div>-->
 
                                     <div class="col-md-12 mb-3">
                                         <button class="btn btn-primary" @click.prevent="createInfo" type="submit">
@@ -110,9 +110,9 @@ export default {
                 }
                 await axios.post('/api/panel/slide', {
                         image: document.getElementById('Image__code').value,
-                        title: document.getElementById('title').value,
-                        subTitle: document.getElementById('subTitle').value,
-                        link: document.getElementById('link').value,
+                        // title: document.getElementById('title').value,
+                        // subTitle: document.getElementById('subTitle').value,
+                        // link: document.getElementById('link').value,
 
                     })
                     .then((response) => {
