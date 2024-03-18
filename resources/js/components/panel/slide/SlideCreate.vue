@@ -74,7 +74,7 @@ export default {
             image_names: [],
             imgRequired: true,
             hasCaption: false,
-            aspect: 1550 / 800,
+            aspect: 1536 / 636,
         }
     },
     mounted() {

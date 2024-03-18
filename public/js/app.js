@@ -18049,11 +18049,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ImageCropper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/ImageCropper */ "./resources/js/components/components/ImageCropper.vue");
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../App */ "./resources/js/components/panel/App.vue");
 
-
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -18069,14 +18066,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       image_names: [],
       imgRequired: true,
       hasCaption: false,
-      aspect: 1550 / 800
+      aspect: 1536 / 636
     };
   },
   mounted: function mounted() {},
   methods: {
     createInfo: function createInfo() {
       var _this = this;
-
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
         var emptyFieldsCount, req, features, i;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
@@ -18085,7 +18081,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context4.next = 2;
                 return _App__WEBPACK_IMPORTED_MODULE_2__["default"].methods.checkToken();
-
               case 2:
                 _this.errors = [];
                 emptyFieldsCount = 0;
@@ -18100,24 +18095,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     element.nextSibling.innerHTML = "";
                   }
                 });
-
                 if (!(emptyFieldsCount === 0)) {
                   _context4.next = 12;
                   break;
                 }
-
                 features = [];
-
                 for (i = 0; i < document.getElementsByName('featureLabel').length; i++) {
                   features.push('{"label": "' + document.getElementsByName('featureLabel')[i].value + '", "value": "' + document.getElementsByName('featureValue')[i].value + '"}');
                 }
-
                 if (document.getElementsByName('featureLabel').length === 0) {
                   features = '[]';
                 } else {
                   features = '[' + features.toString() + ']';
                 }
-
                 _context4.next = 12;
                 return axios.post('/api/panel/slide', {
                   image: document.getElementById('Image__code').value,
@@ -18136,14 +18126,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   console.log(error);
                   console.log(error.message);
                   console.log(error.data);
-
                   if (error.status === 422) {
                     var errorList = Array(error.data);
-
                     for (var i = 0; i < errorList.length; i++) {
                       _this.errors = errorList[i];
                     }
-
                     setTimeout(function () {}, 1000);
                   } else if (error.status === 500) {
                     if (error.data.message.includes("SQLSTATE")) {
@@ -18156,7 +18143,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                                   setTimeout(function () {
                                     alert(error.response.data.message);
                                   }, 200);
-
                                 case 1:
                                 case "end":
                                   return _context.stop();
@@ -18164,12 +18150,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                             }
                           }, _callee);
                         }));
-
                         return function showAlertSql() {
                           return _ref.apply(this, arguments);
                         };
                       }();
-
                       console.error('خطای پایگاه داده');
                       showAlertSql();
                     } else {
@@ -18182,7 +18166,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                                   setTimeout(function () {
                                     alert(error.message + ' ' + error.response.data.message);
                                   }, 200);
-
                                 case 1:
                                 case "end":
                                   return _context2.stop();
@@ -18190,12 +18173,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                             }
                           }, _callee2);
                         }));
-
                         return function showAlert500() {
                           return _ref2.apply(this, arguments);
                         };
                       }();
-
                       showAlert500();
                     }
                   } else {
@@ -18208,7 +18189,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                                 setTimeout(function () {
                                   alert(error.message);
                                 }, 200);
-
                               case 1:
                               case "end":
                                 return _context3.stop();
@@ -18216,16 +18196,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                           }
                         }, _callee3);
                       }));
-
                       return function showAlert() {
                         return _ref3.apply(this, arguments);
                       };
                     }();
-
                     showAlert();
                   }
                 });
-
               case 12:
               case "end":
                 return _context4.stop();
@@ -18255,13 +18232,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ImageCropper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/ImageCropper */ "./resources/js/components/components/ImageCropper.vue");
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../App */ "./resources/js/components/panel/App.vue");
 
-
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
- // import {toArray} from "../../../public/cropperjs/src/js/utilities";
+// import {toArray} from "../../../public/cropperjs/src/js/utilities";
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -18277,7 +18252,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       image_names: [],
       imgRequired: false,
       hasCaption: false,
-      aspect: 1550 / 800,
+      aspect: 1536 / 636,
       isDefined: false,
       enableClick: true,
       features: [],
@@ -18290,7 +18265,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   methods: {
     loadData: function loadData() {
       var _this = this;
-
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
@@ -18299,7 +18273,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.next = 2;
                 return axios.get('/api/panel/slide/' + _this.id).then(function (response) {
                   _this.data = response.data;
-
                   if (_this.data.features) {
                     for (var i = 0; i < JSON.parse(_this.data.features).length; i++) {
                       _this.features.push(JSON.parse(_this.data.features)[i]);
@@ -18308,7 +18281,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }).then(function () {
                   _this.isDefined = true;
                 })["catch"]();
-
               case 2:
               case "end":
                 return _context.stop();
@@ -18319,7 +18291,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     updateInfo: function updateInfo() {
       var _this2 = this;
-
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
         var emptyFieldsCount, req, features, i;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
@@ -18339,24 +18310,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     element.nextSibling.innerHTML = "";
                   }
                 });
-
                 if (!(emptyFieldsCount === 0)) {
                   _context5.next = 10;
                   break;
                 }
-
                 features = [];
-
                 for (i = 0; i < document.getElementsByName('featureLabel').length; i++) {
                   features.push('{"label": "' + document.getElementsByName('featureLabel')[i].value + '", "value": "' + document.getElementsByName('featureValue')[i].value + '"}');
                 }
-
                 if (document.getElementsByName('featureLabel').length === 0) {
                   features = '[]';
                 } else {
                   features = '[' + features.toString() + ']';
                 }
-
                 _context5.next = 10;
                 return axios.post('/api/panel/slide/' + _this2.$route.params.id, {
                   image: document.getElementById('Image__code').value,
@@ -18375,12 +18341,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 })["catch"](function (error) {
                   if (error.response.status === 422) {
                     var errorList = Array(error.response.data);
-
                     for (var i = 0; i < errorList.length; i++) {
                       // console.log('i', errorList[i]);
                       _this2.errors = errorList[i];
                     }
-
                     setTimeout(function () {}, 1000);
                   } else if (error.response.status === 500) {
                     if (error.response.data.message.includes("SQLSTATE")) {
@@ -18393,7 +18357,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                                   setTimeout(function () {
                                     alert(error.response.data.message);
                                   }, 200);
-
                                 case 1:
                                 case "end":
                                   return _context2.stop();
@@ -18401,12 +18364,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                             }
                           }, _callee2);
                         }));
-
                         return function showAlertSql() {
                           return _ref.apply(this, arguments);
                         };
                       }();
-
                       console.error('خطای پایگاه داده');
                       showAlertSql();
                     } else {
@@ -18419,7 +18380,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                                   setTimeout(function () {
                                     alert(error.message + ' ' + error.response.data.message);
                                   }, 200);
-
                                 case 1:
                                 case "end":
                                   return _context3.stop();
@@ -18427,12 +18387,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                             }
                           }, _callee3);
                         }));
-
                         return function showAlert500() {
                           return _ref2.apply(this, arguments);
                         };
                       }();
-
                       showAlert500();
                     }
                   } else {
@@ -18445,7 +18403,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                                 setTimeout(function () {
                                   alert(error.message);
                                 }, 200);
-
                               case 1:
                               case "end":
                                 return _context4.stop();
@@ -18453,16 +18410,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                           }
                         }, _callee4);
                       }));
-
                       return function showAlert() {
                         return _ref3.apply(this, arguments);
                       };
                     }();
-
                     showAlert();
                   }
                 });
-
               case 10:
               case "end":
                 return _context5.stop();

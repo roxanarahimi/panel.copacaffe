@@ -17,7 +17,6 @@
                               </div>
                               <div class="card-footer border-none bg-white">
                                   <p>{{ item.title }}</p>
-
                               </div>
 
                           </div>
