@@ -76,7 +76,7 @@
                 image_names: [],
                 imgRequired: false,
                 hasCaption: false,
-                aspect: 1536 / 636,
+                aspect: 1500 / 621,
                 isDefined: false,
                 enableClick: true,
                 features: [],
