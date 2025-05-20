@@ -104,6 +104,7 @@ export default {
       if (files.length) {
         selectedFile.value = files[0];
       }
+        console.log('xxx',files[0].size);
 
         if(files[0].type != 'image/png'){
 
@@ -114,7 +115,6 @@ export default {
             alert('فرمت باید png باشد');
         }
       if (files[0], files[0].type == 'image/png') {
-          console.log('xxx',files[0].size);
           // if (files[0].size > 600) {
           //   selectedFile.value = null;
           //   document.getElementById("preview_" + _props.name).setAttribute('src', "");
