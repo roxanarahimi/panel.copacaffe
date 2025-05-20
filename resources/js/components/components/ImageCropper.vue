@@ -104,6 +104,7 @@ export default {
       if (files.length) {
         selectedFile.value = files[0];
       }
+      console.log(selectedFile.value);
 
         if(files[0].type != 'image/png'){
 
@@ -120,7 +121,7 @@ export default {
           let img = new Image;
           img.onload = function () {
             // console.log("The width of the image is " + img.width + "px.");
-              alert(img.size);
+            //   alert(img.size);
             // if (img.size > 600) {
             //   selectedFile.value = null;
             //   document.getElementById("preview_" + _props.name).setAttribute('src', "");
