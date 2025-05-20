@@ -114,7 +114,7 @@ export default {
             alert('فرمت باید png باشد');
         }
       if (files[0], files[0].type == 'image/png') {
-          alert(files[0].size);
+          console.log('xxx',files[0].size);
           // if (files[0].size > 600) {
           //   selectedFile.value = null;
           //   document.getElementById("preview_" + _props.name).setAttribute('src', "");
