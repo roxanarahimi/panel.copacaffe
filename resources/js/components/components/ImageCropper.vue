@@ -98,13 +98,14 @@ export default {
       }
     };
     const fileChanged = (e) => {
+        alert();
       document.removeEventListener('click', handleImageCropped);
 
       let files = e.target.files || e.dataTransfer.files;
-      if (files.length) {
+
+        if (files.length) {
         selectedFile.value = files[0];
       }
-      console.log(selectedFile.value);
 
         if(files[0].type != 'image/png'){
 
