@@ -120,7 +120,7 @@ export default {
           let img = new Image;
           img.onload = function () {
             // console.log("The width of the image is " + img.width + "px.");
-              console.log('mmm',img);
+              console.log(img.getSize(),img.size);
             // if (img.size > 600) {
             //   selectedFile.value = null;
             //   document.getElementById("preview_" + _props.name).setAttribute('src', "");
