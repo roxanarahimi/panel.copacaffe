@@ -104,7 +104,7 @@ export default {
       if (files.length) {
         selectedFile.value = files[0];
       }
-        console.log('xxx',files[0].size);
+        console.log('xxx',selectedFile.value);
 
         if(files[0].type != 'image/png'){
 
