@@ -104,7 +104,6 @@ export default {
       if (files.length) {
         selectedFile.value = files[0];
       }
-        console.log('xxx',selectedFile.value);
 
         if(files[0].type != 'image/png'){
 
@@ -115,19 +114,21 @@ export default {
             alert('فرمت باید png باشد');
         }
       if (files[0], files[0].type == 'image/png') {
-          // if (files[0].size > 600) {
-          //   selectedFile.value = null;
-          //   document.getElementById("preview_" + _props.name).setAttribute('src', "");
-          //   document.getElementById('Image_' + _props.name + '_code').setAttribute('value', "");
-          //   destination.value = null;
-          //   // document.getElementById('imageHelp').innerHTML = 'عرض تصویر باید بیش از 200 پیکسل باشد';
-          //   alert('حجم تصویر نباید بیش از 600 مگابایت باشد');
-          // }
+
         let reader = new FileReader();
         reader.onload = function (files) {
           let img = new Image;
           img.onload = function () {
             // console.log("The width of the image is " + img.width + "px.");
+              alert(img.size);
+            // if (img.size > 600) {
+            //   selectedFile.value = null;
+            //   document.getElementById("preview_" + _props.name).setAttribute('src', "");
+            //   document.getElementById('Image_' + _props.name + '_code').setAttribute('value', "");
+            //   destination.value = null;
+            //   // document.getElementById('imageHelp').innerHTML = 'عرض تصویر باید بیش از 200 پیکسل باشد';
+            //   alert('حجم تصویر نباید بیش از 600 مگابایت باشد');
+            // }
             if (img.width < 200) {
               selectedFile.value = null;
               document.getElementById("preview_" + _props.name).setAttribute('src', "");
