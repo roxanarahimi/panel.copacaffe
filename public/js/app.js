@@ -18707,7 +18707,7 @@ var _hoisted_7 = {
   "class": "d-grid"
 };
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
-  "class": "error text-start align-self-center small"
+  "class": "error text-start align-self-center small px-0"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
   "class": "error"
 }, "فرمت مجاز: png"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {

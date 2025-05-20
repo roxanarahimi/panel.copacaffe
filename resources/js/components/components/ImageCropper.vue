@@ -12,7 +12,7 @@
              alt="">
       </div>
         <div v-if="!selectedFile" class="d-grid">
-            <ul class="error text-start align-self-center small">
+            <ul class="error text-start align-self-center small px-0">
                 <li class="error">فرمت مجاز: png</li>
                 <li class="error">حجم مجاز: حد اکثر 600KB</li>
                 <li class="error">طول و عرض پیشنهادی: 300 تا 600 px</li>
