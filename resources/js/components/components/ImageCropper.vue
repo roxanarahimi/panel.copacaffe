@@ -11,6 +11,13 @@
         <img class="img-fluid" style="width: 360px !important; height: auto !important" ref="image" :src="imageSrc"
              alt="">
       </div>
+        <div v-if="!selectedFile" class="d-grid">
+            <ul class="error text-start align-self-center small">
+                <li class="error">فرمت مجاز: png</li>
+                <li class="error">حجم مجاز: حد اکثر 600KB</li>
+                <li class="error">طول و عرض پیشنهادی: 300 تا 600 px</li>
+            </ul>
+        </div>
     </div>
 
     <div v-if="!hasCaption && selectedFile" class="d-inline-block image-preview_wrapper p-1 text-center m-2"
@@ -98,12 +105,10 @@ export default {
       }
     };
     const fileChanged = (e) => {
-        alert();
       document.removeEventListener('click', handleImageCropped);
 
       let files = e.target.files || e.dataTransfer.files;
-
-        if (files.length) {
+      if (files.length) {
         selectedFile.value = files[0];
       }
 
@@ -115,6 +120,10 @@ export default {
             // destination.value = null;
             alert('فرمت باید png باشد');
         }
+        if(files[0].size >600000 ){
+            selectedFile.value = null;
+            alert('حجم تصویر نباید بیش از 600 کیلوبایت باشد');
+        }
       if (files[0], files[0].type == 'image/png') {
 
         let reader = new FileReader();
@@ -122,15 +131,6 @@ export default {
           let img = new Image;
           img.onload = function () {
             // console.log("The width of the image is " + img.width + "px.");
-            //   alert(img.size);
-            // if (img.size > 600) {
-            //   selectedFile.value = null;
-            //   document.getElementById("preview_" + _props.name).setAttribute('src', "");
-            //   document.getElementById('Image_' + _props.name + '_code').setAttribute('value', "");
-            //   destination.value = null;
-            //   // document.getElementById('imageHelp').innerHTML = 'عرض تصویر باید بیش از 200 پیکسل باشد';
-            //   alert('حجم تصویر نباید بیش از 600 مگابایت باشد');
-            // }
             if (img.width < 200) {
               selectedFile.value = null;
               document.getElementById("preview_" + _props.name).setAttribute('src', "");

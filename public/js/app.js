@@ -17378,11 +17378,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 // import Cropper from 'cropperjs';
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -17399,15 +17396,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     var destination = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)(null);
     var cropper = null;
     var fileReader = new FileReader();
-
     fileReader.onload = function (event) {
       imageSrc.value = event.target.result;
     };
-
     var handleImageCropped = function handleImageCropped() {
       if (imageSrc.value) {
         var _cropper$getCroppedCa, _cropper$getCroppedCa2, _document$getElementB;
-
         // cropper.getCroppedCanvas().toDataURL((blob) => {
         //     // console.log('blob', blob);
         //     emit('imageCropped', blob);
@@ -17418,10 +17412,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           fillColor: '#fff'
         })) === null || _cropper$getCroppedCa2 === void 0 ? void 0 : _cropper$getCroppedCa2.toDataURL('image/jpeg');
         (_document$getElementB = document.getElementById("preview_" + _props.name)) === null || _document$getElementB === void 0 ? void 0 : _document$getElementB.setAttribute('src', destination.value);
-        document.getElementById('Image_' + _props.name + '_code').setAttribute('value', destination.value); // document.getElementById('Image_'+ _props.name +'_code').innerText = destination.value;
+        document.getElementById('Image_' + _props.name + '_code').setAttribute('value', destination.value);
+        // document.getElementById('Image_'+ _props.name +'_code').innerText = destination.value;
       }
     };
-
     var check1 = function check1() {
       // alert('1')
       if (imageSrc) {
@@ -17433,64 +17427,57 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log('removed');
       }
     };
-
     var fileChanged = function fileChanged(e) {
       document.removeEventListener('click', handleImageCropped);
       var files = e.target.files || e.dataTransfer.files;
-
       if (files.length) {
         selectedFile.value = files[0];
       }
-
       if (files[0].type != 'image/png') {
-        selectedFile.value = null; // document.getElementById("preview_" + _props.name).setAttribute('src', "");
+        selectedFile.value = null;
+        // document.getElementById("preview_" + _props.name).setAttribute('src', "");
         // document.getElementById('Image_' + _props.name + '_code').setAttribute('value', "");
         // destination.value = null;
-
         alert('فرمت باید png باشد');
       }
-
+      if (files[0].size > 600000) {
+        selectedFile.value = null;
+        alert('حجم تصویر نباید بیش از 600 کیلوبایت باشد');
+      }
       if (files[0], files[0].type == 'image/png') {
         var reader = new FileReader();
-
         reader.onload = function (files) {
           var img = new Image();
-
           img.onload = function () {
             // console.log("The width of the image is " + img.width + "px.");
             if (img.width < 200) {
               selectedFile.value = null;
               document.getElementById("preview_" + _props.name).setAttribute('src', "");
               document.getElementById('Image_' + _props.name + '_code').setAttribute('value', "");
-              destination.value = null; // document.getElementById('imageHelp').innerHTML = 'عرض تصویر باید بیش از 200 پیکسل باشد';
-
+              destination.value = null;
+              // document.getElementById('imageHelp').innerHTML = 'عرض تصویر باید بیش از 200 پیکسل باشد';
               alert('عرض تصویر باید بیش از 200 پیکسل باشد');
             }
           };
-
           img.src = reader.result;
         };
-
         reader.readAsDataURL(files[0]);
       }
-
       check1();
     };
-
     var clearFile = function clearFile() {
       selectedFile.value = null;
       document.getElementById("image" + _props.name).value = null;
       document.getElementById("preview_" + _props.name).setAttribute('src', "");
       document.getElementById('Image_' + _props.name + '_code').setAttribute('value', "");
-
       if (_props.name === 'inner') {
         document.getElementById('Image_' + _props.name + '_alt').value = "";
         document.getElementById('Image_' + _props.name + '_max_width').value = "";
       }
+      destination.value = null;
 
-      destination.value = null; // thumb.value = null; // imageSrc.value = null;
+      // thumb.value = null; // imageSrc.value = null;
     };
-
     (0,vue__WEBPACK_IMPORTED_MODULE_1__.onMounted)(function () {
       cropper = new Cropper(image.value, {
         // aspectRatio:1,
@@ -17515,7 +17502,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       if (selectedFile.value) {
         fileReader.readAsDataURL(selectedFile.value);
       } else {
-        imageSrc.value = null; // destination.value = null;
+        imageSrc.value = null;
+        // destination.value = null;
         // thumb.value = null;
       }
     });
@@ -17528,21 +17516,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.next = 8;
                 break;
               }
-
               _context.next = 3;
               return cropper.replace(imageSrc.value);
-
             case 3:
               _context.t0 = setTimeout;
               _context.next = 6;
               return function () {
                 handleImageCropped();
               };
-
             case 6:
               _context.t1 = _context.sent;
               (0, _context.t0)(_context.t1, 200);
-
             case 8:
             case "end":
               return _context.stop();
@@ -17551,7 +17535,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, _callee);
     })), {
       flush: 'post' //watch runs after component updates
-
     });
     return {
       imageInput: imageInput,
@@ -18066,7 +18049,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       image_names: [],
       imgRequired: true,
       hasCaption: false,
-      aspect: 1536 / 636
+      aspect: 1500 / 621
     };
   },
   mounted: function mounted() {},
@@ -18252,7 +18235,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       image_names: [],
       imgRequired: false,
       hasCaption: false,
-      aspect: 1536 / 636,
+      aspect: 1500 / 621,
       isDefined: false,
       enableClick: true,
       features: [],
@@ -18720,6 +18703,20 @@ var _hoisted_5 = {
 };
 var _hoisted_6 = ["src"];
 var _hoisted_7 = {
+  key: 0,
+  "class": "d-grid"
+};
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
+  "class": "error text-start align-self-center small"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "error"
+}, "فرمت مجاز: png"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "error"
+}, "حجم مجاز: حد اکثر 600KB"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+  "class": "error"
+}, "طول و عرض پیشنهادی: 300 تا 600 px")], -1 /* HOISTED */);
+var _hoisted_9 = [_hoisted_8];
+var _hoisted_10 = {
   key: 1,
   "class": "d-inline-block image-preview_wrapper p-1 text-center m-2",
   style: {
@@ -18727,32 +18724,24 @@ var _hoisted_7 = {
     "min-height": "180px"
   }
 };
-var _hoisted_8 = ["id"];
-
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "bi bi-upload px-2 fw-bold"
-}, null, -1
-/* HOISTED */
-);
-
-var _hoisted_10 = [_hoisted_9];
 var _hoisted_11 = ["id"];
-
 var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "bi bi-upload px-2 fw-bold"
+}, null, -1 /* HOISTED */);
+var _hoisted_13 = [_hoisted_12];
+var _hoisted_14 = ["id"];
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "bi bi-eraser px-2 fw-bold",
   "data-bs-toggle": "tooltip",
   "data-bs-placement": "bottom",
   title: "پاک کن"
-}, null, -1
-/* HOISTED */
-);
-
-var _hoisted_13 = [_hoisted_12];
-var _hoisted_14 = ["id", "name"];
-var _hoisted_15 = ["id"];
-var _hoisted_16 = ["id", "value"];
-var _hoisted_17 = ["id", "value"];
+}, null, -1 /* HOISTED */);
+var _hoisted_16 = [_hoisted_15];
+var _hoisted_17 = ["id", "name"];
 var _hoisted_18 = ["id"];
+var _hoisted_19 = ["id", "value"];
+var _hoisted_20 = ["id", "value"];
+var _hoisted_21 = ["id"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
     "class": "image-cropper row",
@@ -18767,9 +18756,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "width": "100%",
       "height": "auto"
     }
-  }, null, 8
-  /* PROPS */
-  , _hoisted_3), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <p v-if = \"hasCaption\" class = \"align-bottom\"> {{ caption }} </p>")])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        @mousemove = \"handleImageCropped\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  }, null, 8 /* PROPS */, _hoisted_3), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <p v-if = \"hasCaption\" class = \"align-bottom\"> {{ caption }} </p>")])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        @mousemove = \"handleImageCropped\""), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     "class": "img-fluid",
     style: {
       "width": "360px !important",
@@ -18778,11 +18765,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ref: "image",
     src: $setup.imageSrc,
     alt: ""
-  }, null, 8
-  /* PROPS */
-  , _hoisted_6)], 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.selectedFile]])]), !$props.hasCaption && $setup.selectedFile ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  }, null, 8 /* PROPS */, _hoisted_6)], 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.selectedFile]]), !$setup.selectedFile ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_7, _hoisted_9)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), !$props.hasCaption && $setup.selectedFile ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     id: 'preview_' + $props.name,
     "class": "image-preview",
     style: {
@@ -18790,9 +18773,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "height": "auto"
     },
     alt: ""
-  }, null, 8
-  /* PROPS */
-  , _hoisted_8)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        <figure v-else class = \"content_image image-preview_wrapper p-1 text-center m-2\" style = \"max-width: 265px;height:180px\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <img v-show = \"selectedFile\" :id = \"'preview_'+ name\" class = \"image-preview img-fluid\" alt = \"\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <figcaption v-show = \"selectedFile\" class = \"align-bottom\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <input :id = \"'Image_'+name+'_caption'\" type = \"text\" class = \"form-control mt-2\" placeholder = \"کپشن را وارد کنید (اختیاری)\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            </figcaption>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        </figure>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  }, null, 8 /* PROPS */, _hoisted_11)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        <figure v-else class = \"content_image image-preview_wrapper p-1 text-center m-2\" style = \"max-width: 265px;height:180px\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <img v-show = \"selectedFile\" :id = \"'preview_'+ name\" class = \"image-preview img-fluid\" alt = \"\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <figcaption v-show = \"selectedFile\" class = \"align-bottom\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <input :id = \"'Image_'+name+'_caption'\" type = \"text\" class = \"form-control mt-2\" placeholder = \"کپشن را وارد کنید (اختیاری)\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            </figcaption>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        </figure>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $setup.imageInput.click();
     }),
@@ -18800,15 +18781,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "data-bs-toggle": "tooltip",
     "data-bs-placement": "bottom",
     title: "انتخاب عکس"
-  }, _hoisted_10), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  }, _hoisted_13), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     id: 'btn_clear_image_' + $props.name,
     onClick: _cache[1] || (_cache[1] = function () {
       return $setup.clearFile && $setup.clearFile.apply($setup, arguments);
     }),
     "class": "btn btn-primary btn-sm m-1 mb-3"
-  }, _hoisted_13, 8
-  /* PROPS */
-  , _hoisted_11), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.selectedFile]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        <div v-show = \"selectedFile\" v-if = \"hasCaption\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <input type = \"text\" :id = \"'Image_'+name+'_alt'\" class = \"form-control mb-2\" style = \"width: 260px\" placeholder = \" alt (اختیاری) \">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <input type = \"text\" :id = \"'Image_'+name+'_max_width'\" class = \"form-control mb-2\" style = \"width: 260px\" placeholder = \"حد اکثر عرض مجاز (اختیاری)\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, _hoisted_16, 8 /* PROPS */, _hoisted_14), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $setup.selectedFile]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        <div v-show = \"selectedFile\" v-if = \"hasCaption\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <input type = \"text\" :id = \"'Image_'+name+'_alt'\" class = \"form-control mb-2\" style = \"width: 260px\" placeholder = \" alt (اختیاری) \">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <input type = \"text\" :id = \"'Image_'+name+'_max_width'\" class = \"form-control mb-2\" style = \"width: 260px\" placeholder = \"حد اکثر عرض مجاز (اختیاری)\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     id: 'image' + $props.name,
     ref: "imageInput",
     accept: ".png",
@@ -18818,42 +18797,30 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     type: "file",
     name: 'content_image_file' + $props.name,
     "class": "form-control d-none"
-  }, null, 40
-  /* PROPS, HYDRATE_EVENTS */
-  , _hoisted_14), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_17), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     id: 'Image_' + $props.name + '_code',
     name: "content_image_code",
     type: "text",
     "class": "form-control image_code_64 d-none"
-  }, null, 8
-  /* PROPS */
-  , _hoisted_15), $setup.selectedFile ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("input", {
+  }, null, 8 /* PROPS */, _hoisted_18), $setup.selectedFile ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("input", {
     key: 2,
     id: 'Image_' + $props.name + '_name',
     name: "content_image_name",
     value: $setup.selectedFile.name,
     type: "text",
     "class": "file_name form-control d-none"
-  }, null, 8
-  /* PROPS */
-  , _hoisted_16)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.isRequired ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("input", {
+  }, null, 8 /* PROPS */, _hoisted_19)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.isRequired ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("input", {
     key: 3,
     id: 'Image_' + $props.name,
     type: "text",
     value: $setup.selectedFile,
     "class": "form-control d-none",
     required: ""
-  }, null, 8
-  /* PROPS */
-  , _hoisted_17)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.isRequired ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+  }, null, 8 /* PROPS */, _hoisted_20)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.isRequired ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
     key: 4,
     id: 'imageHelp' + $props.name,
     "class": "form-text error"
-  }, null, 8
-  /* PROPS */
-  , _hoisted_18)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 8
-  /* PROPS */
-  , _hoisted_1);
+  }, null, 8 /* PROPS */, _hoisted_21)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 8 /* PROPS */, _hoisted_1);
 }
 
 /***/ }),
@@ -22609,7 +22576,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.image-container {\r\n  width: inherit;\r\n  height: inherit;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.image-container {\n  width: inherit;\n  height: inherit;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
