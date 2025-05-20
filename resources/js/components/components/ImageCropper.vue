@@ -120,7 +120,14 @@ export default {
           let img = new Image;
           img.onload = function () {
             // console.log("The width of the image is " + img.width + "px.");
-
+            if (img.size > 600) {
+              selectedFile.value = null;
+              document.getElementById("preview_" + _props.name).setAttribute('src', "");
+              document.getElementById('Image_' + _props.name + '_code').setAttribute('value', "");
+              destination.value = null;
+              // document.getElementById('imageHelp').innerHTML = 'عرض تصویر باید بیش از 200 پیکسل باشد';
+              alert('حجم تصویر نباید بیش از 600 مگابایت باشد');
+            }
             if (img.width < 200) {
               selectedFile.value = null;
               document.getElementById("preview_" + _props.name).setAttribute('src', "");
